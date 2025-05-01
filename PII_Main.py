@@ -43,8 +43,17 @@ patterns = {
     "Slovenian EMŠO": re.compile(r"\b\d{13}\b")
     "Swedish Personnummer": re.compile(r"\b\d{6,8}-\d{4}\b")
 
+    # Phone number for any coutnry
+    "Phone Number": re.compile(
+        r"""(?x)                                  # Verbose mode
+        (?:(?:\+|00)\d{1,3}[\s.-]?)?              # Country code e.g. +49, +44, 0049
+        (?:\(?\d{1,4}\)?[\s.-]?)?                 # Optional area code
+        \d{2,4}[\s.-]?\d{2,4}[\s.-]?\d{2,4}       # Main number parts
+        """
+    ),
+
+    # Generatic
     "Driver License": re.compile(r"\b[A-Z0-9]{5,15}\b"),
-    "Phone Number": re.compile(r"\b(?:\+?\d{1,3}[\s\-]?)?(?:\(?\d{2,4}\)?[\s\-]?)?\d{3}[\s\-]?\d{4}\b"),
     "Address": re.compile(r"\d+\s+[A-Za-z]+\s+(Street|St|Road|Rd|Avenue|Ave|Boulevard|Blvd|Lane|Ln|Drive|Dr|Court|Ct|Way|Square|Sq|Trail|Trl|Parkway|Pkwy|Commons)\b", re.IGNORECASE),
     "IP Address": re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"),
     "MAC Address": re.compile(r"\b(?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2})\b"),
