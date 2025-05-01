@@ -15,15 +15,15 @@ patterns = {
     # Country-Specific National IDs
     "National ID Number": re.compile(
         r"""\b(
-            \d{3}-\d{2}-\d{4} |                    # US SSN
-            \d{3}-\d{3}-\d{3} |                    # Canada SIN
-            \d{6}[-/]\d{3,4} |                     # CZ, SK, SE personal number
-            \d{11,13} |                            # RO, SI, LT, LU, GR, PL, EE
-            [A-Z]{1,2}\d{6,9} |                    # ES, CY, NL, IT
-            \d{2}[0-1]\d[0-3]\d-\d{3}-\d{2} |      # BE RRN
-            \d{6}[-+]\d{4} |                       # FI HETU
-            [3-6]\d{10} |                          # EE, LT national ID
-            \d{10}                                 # BG, AT, HU
+            \d{3}-\d{2}-\d{4} |
+            \d{3}-\d{3}-\d{3} |
+            \d{6}[-/]\d{3,4} |
+            \d{11,13} |
+            [A-Z]{1,2}\d{6,9} |
+            \d{2}[0-1]\d[0-3]\d-\d{3}-\d{2} |
+            \d{6}[-+]\d{4} |
+            [3-6]\d{10} |
+            \d{10}
         )\b""", re.VERBOSE
     ),
 
