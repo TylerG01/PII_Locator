@@ -52,13 +52,24 @@ patterns = {
         """
     ),
 
+    # Passport Numbers (by country)
+    "US Passport": re.compile(r"\b\d{9}\b"),
+    "Canada Passport": re.compile(r"\b[A-Z]{2}\d{6}\b"),
+    "UK Passport": re.compile(r"\b\d{9}\b"),
+    "Germany Passport": re.compile(r"\b[C-F][A-Z0-9]{8}\b"),
+    "France Passport": re.compile(r"\b\d{2}[A-Z]{1,2}\d{5}\b"),
+    "Italy Passport": re.compile(r"\b[Y-Z]{2}\d{7}\b"),
+    "Spain Passport": re.compile(r"\b[A-Z]\d{7}\b"),
+    "Netherlands Passport": re.compile(r"\b[A-Z]{2}\d{7}\b"),
+    "Sweden Passport": re.compile(r"\b\d{9}\b"),
+    "Australia Passport": re.compile(r"\b[A-Z]\d{7}\b"),
+
     # Generatic
     "Driver License": re.compile(r"\b[A-Z0-9]{5,15}\b"),
     "Address": re.compile(r"\d+\s+[A-Za-z]+\s+(Street|St|Road|Rd|Avenue|Ave|Boulevard|Blvd|Lane|Ln|Drive|Dr|Court|Ct|Way|Square|Sq|Trail|Trl|Parkway|Pkwy|Commons)\b", re.IGNORECASE),
     "IP Address": re.compile(r"\b(?:\d{1,3}\.){3}\d{1,3}\b"),
     "MAC Address": re.compile(r"\b(?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2})\b"),
     "IMEI": re.compile(r"\b\d{15}\b"),
-    "Passport": re.compile(r"\b[A-Z]{1,2}\d{6,9}\b"),
     "Race/Ethnicity": re.compile(r"\b(Asian|Black|White|Hispanic|Latino|Indigenous|Native American|Pacific Islander|Middle Eastern|Multiracial)\b", re.IGNORECASE),
     "Gender": re.compile(r"\b(Male|Female|Non-binary|Other|Transgender|Intersex)\b", re.IGNORECASE)
 }
