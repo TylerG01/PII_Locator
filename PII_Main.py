@@ -45,10 +45,10 @@ patterns = {
 
     # Phone number for any coutnry
     "Phone Number": re.compile(
-        r"""(?x)                                  # Verbose mode
-        (?:(?:\+|00)\d{1,3}[\s.-]?)?              # Country code e.g. +49, +44, 0049
-        (?:\(?\d{1,4}\)?[\s.-]?)?                 # Optional area code
-        \d{2,4}[\s.-]?\d{2,4}[\s.-]?\d{2,4}       # Main number parts
+        r"""(?x)
+        (?:(?:\+|00)\d{1,3}[\s.-]?)?
+        (?:\(?\d{1,4}\)?[\s.-]?)?
+        \d{2,4}[\s.-]?\d{2,4}[\s.-]?\d{2,4}
         """
     ),
 
