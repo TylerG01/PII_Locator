@@ -13,35 +13,19 @@ patterns = {
     "National ID (Generic)": re.compile(r"\b[A-Z]?\d{6,12}[A-Z]?\b"),
 
     # Country-Specific National IDs
-    "SSN": re.compile(r"\b\d{3}-\d{2}-\d{4}\b"), # United States
-    "SIN": re.compile(r"\b\d{3}-\d{3}-\d{3}\b"), # Canada
-    "German ID": re.compile(r"\b[A-Z][0-9]{7}[A-Z]\b"),
-    "French ID (INSEE/NIR)": re.compile(r"\b[12]\s?\d{2}\s?\d{2}\s?\d{2}\s?\d{3}\s?\d{3}\s?\d{2}\b"),
-    "Spanish DNI": re.compile(r"\b\d{8}[A-Z]\b"),
-    "Italian Codice Fiscale": re.compile(r"\b[A-Z]{6}\d{2}[A-Z]\d{2}[A-Z]\d{3}[A-Z]\b"),
-    "Austrian SV Number": re.compile(r"\b\d{10}\b"),
-    "Belgian RRN": re.compile(r"\b\d{2}[0-1]\d[0-3]\d-\d{3}-\d{2}\b"),
-    "Bulgarian EGN": re.compile(r"\b\d{10}\b"),
-    "Croatian OIB": re.compile(r"\b\d{11}\b"),
-    "Cypriot ID": re.compile(r"\b[A-Z]\d{8}\b"),
-    "Czech ID": re.compile(r"\b\d{6}/\d{3,4}\b"),
-    "Danish CPR": re.compile(r"\b\d{6}-\d{4}\b"),
-    "Estonian ID": re.compile(r"\b[3-6]\d{10}\b"),
-    "Estonian ID": re.compile(r"\b[3-6]\d{10}\b"),
-    "Finnish HETU": re.compile(r"\b\d{6}[-+]\d{4}\b"),
-    "Greek AMKA": re.compile(r"\b\d{11}\b"),
-    "Hungarian TAJ": re.compile(r"\b\d{9}\b"),
-    "Latvian ID": re.compile(r"\b\d{6}-\d{5}\b"),
-    "Lithuanian ID": re.compile(r"\b[3-6]\d{10}\b"),
-    "Luxembourg ID": re.compile(r"\b\d{11}\b"),
-    "Maltese ID": re.compile(r"\b\d{7}[A-Z]\b"),
-    "Dutch BSN": re.compile(r"\b\d{8,9}\b"),
-    "Polish PESEL": re.compile(r"\b\d{11}\b"),
-    "Portuguese NIF": re.compile(r"\b\d{9}\b"),
-    "Romanian CNP": re.compile(r"\b\d{13}\b"),
-    "Slovak ID": re.compile(r"\b\d{6}/\d{3,4}\b"),
-    "Slovenian EMŠO": re.compile(r"\b\d{13}\b"),
-    "Swedish Personnummer": re.compile(r"\b\d{6,8}-\d{4}\b"),
+    "National ID Number": re.compile(
+        r"""\b(
+            \d{3}-\d{2}-\d{4} |                    # US SSN
+            \d{3}-\d{3}-\d{3} |                    # Canada SIN
+            \d{6}[-/]\d{3,4} |                     # CZ, SK, SE personal number
+            \d{11,13} |                            # RO, SI, LT, LU, GR, PL, EE
+            [A-Z]{1,2}\d{6,9} |                    # ES, CY, NL, IT
+            \d{2}[0-1]\d[0-3]\d-\d{3}-\d{2} |      # BE RRN
+            \d{6}[-+]\d{4} |                       # FI HETU
+            [3-6]\d{10} |                          # EE, LT national ID
+            \d{10}                                 # BG, AT, HU
+        )\b""", re.VERBOSE
+    ),
 
     # Phone number for any coutnry
     "Phone Number": re.compile(
