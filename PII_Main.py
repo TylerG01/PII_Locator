@@ -12,7 +12,7 @@ patterns = {
     "Full Name": re.compile(r"\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+)+\b"),
     "National ID (Generic)": re.compile(r"\b[A-Z]?\d{6,12}[A-Z]?\b"),
 
-    # Country-Specific National IDs
+    # Country-Specific National ID# for US, CA, AUS and 24 european countries
     "National ID Number": re.compile(
         r"""\b(
             \d{3}-\d{2}-\d{4} |
