@@ -52,18 +52,17 @@ patterns = {
         """
     ),
 
-    # Passport Numbers (by country)
-    "US Passport": re.compile(r"\b\d{9}\b"),
-    "Canada Passport": re.compile(r"\b[A-Z]{2}\d{6}\b"),
-    "UK Passport": re.compile(r"\b\d{9}\b"),
-    "Germany Passport": re.compile(r"\b[C-F][A-Z0-9]{8}\b"),
-    "France Passport": re.compile(r"\b\d{2}[A-Z]{1,2}\d{5}\b"),
-    "Italy Passport": re.compile(r"\b[Y-Z]{2}\d{7}\b"),
-    "Spain Passport": re.compile(r"\b[A-Z]\d{7}\b"),
-    "Netherlands Passport": re.compile(r"\b[A-Z]{2}\d{7}\b"),
-    "Sweden Passport": re.compile(r"\b\d{9}\b"),
-    "Australia Passport": re.compile(r"\b[A-Z]\d{7}\b"),
-
+    # Passport Numbers (by country) for the US, Canada, Australia and 24 European countries
+    "Passport Number": re.compile(
+        r"""\b(
+            \d{9} |
+            [A-Z]{2}\d{6,7} |
+            [A-Z]{1}\d{7} |
+            \d{2}[A-Z]{1,2}\d{5} |
+            [C-F][A-Z0-9]{8} 
+        )\b""", re.VERBOSE
+    ),
+    
     # Generatic
     "Driver License": re.compile(r"\b[A-Z0-9]{5,15}\b"),
     "Address": re.compile(r"\d+\s+[A-Za-z]+\s+(Street|St|Road|Rd|Avenue|Ave|Boulevard|Blvd|Lane|Ln|Drive|Dr|Court|Ct|Way|Square|Sq|Trail|Trl|Parkway|Pkwy|Commons)\b", re.IGNORECASE),
